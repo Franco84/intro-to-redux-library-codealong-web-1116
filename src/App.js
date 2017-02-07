@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
-import './App.css';
-
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        App component
-      </div>
-    );
-  }
-}
-
-export default App;
+   handleOnClick(){
+     this.props.store.dispatch({type: 'INCREASE_COUNT'})
+   }
+   render() {
+     return (
+       <div className="App">
+           <button onClick={this.handleOnClick.bind(this)}>Click</button>
+           <p> {this.props.store.getState().items.length}</p>
+       </div>
+     );
+   }
+ }
